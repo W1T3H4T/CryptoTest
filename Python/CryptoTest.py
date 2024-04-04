@@ -1,3 +1,10 @@
+##  ==========================================================================================
+##  Program Name        :   CryptoTest.py
+##  Program Description :   This program generates cryptographic data and saves it to two files.
+##  Developer:              David Means <w1t3h4t@gmail.com>
+##  Date                :   04-APR-2024
+##  ===========================================================================================
+
 import sys
 import os
 import struct

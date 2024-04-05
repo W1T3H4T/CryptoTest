@@ -2,7 +2,6 @@
 ##  Program Name        :   CryptoTest.py
 ##  Program Description :   This program generates cryptographic data and saves it to two files.
 ##  Developer:              David Means <w1t3h4t@gmail.com>
-##  Date                :   04-APR-2024
 ##  ===========================================================================================
 
 import sys
@@ -25,12 +24,11 @@ def save_data_to_file(filename, data, hex_format=False):
 def generate_and_save_data(data_size, generate_hex):
     if generate_hex:
         random_numbers = generate_random_numbers(data_size)
-        save_data_to_file("random_numbers.txt", random_numbers, hex_format=True)
-        print("Random numbers generation and file saving completed in hexadecimal format.")
+        save_data_to_file("random_data.txt", random_numbers, hex_format=True)
     else:
         cryptographic_data = generate_random_numbers(data_size)
-        save_data_to_file("cryptographic_data_file.bin", cryptographic_data)
-        print("Cryptographic data generation and file saving completed in binary format.")
+        save_data_to_file("random_data.bin", cryptographic_data)
+       
 
 def main():
     data_size = 0

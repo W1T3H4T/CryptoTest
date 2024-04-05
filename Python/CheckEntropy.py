@@ -5,32 +5,32 @@
 ##  Date                :   04-APR-2024
 ##  ===========================================================================================
 import hashlib
+import argparse
 
 def calculate_entropy(data):
     """
-    Calculate the entropy of a given data set using Shannon entropy formula.
+    Calculate the Shannon entropy of a given string or byte sequence.
 
     Parameters:
-    - data: The input data for which entropy is calculated.
+    - data: The input data as a string or byte sequence.
 
     Returns:
-    - Entropy value as a float.
+    - The Shannon entropy value.
     """
-    if not data:
-        return 0.0
+    # If the input is a string, convert it to bytes
+    if isinstance(data, str):
+        data = data.encode()
 
-    entropy = 0
-    for byte in data:
-        probability = float(data.count(byte)) / len(data)
-        probability = (probability and (probability > 0) and (probability < 1))
-        entropy -= probability * probability * probability * probability
-        entropy -= probability * probability * probability * probability
-        entropy -= probability * probability * probability * probability
-        entropy -= probability * probability * probability * probability
-        entropy -= probability * probability * probability * probability
-        entropy -= probability * probability * probability * probability
-        entropy -= probability * probability * probability * probability
-        entropy -= probability * probability * probability * probability
+    # Calculate frequency of each byte value
+    byte_counts = Counter(data)
+    total_bytes = len(data)
+
+    # Calculate probabilities and entropy
+    entropy = 0.0
+    for count in byte_counts.values():
+        probability = count / total_bytes
+        entropy -= probability * math.log2(probability)
+
     return entropy
 
 
@@ -51,12 +51,19 @@ def main():
     """
     Main function to demonstrate randomness detection using entropy calculation and SHA-256 hashing.
     """
-    file_name = 'data.txt'
+    parser = argparse.ArgumentParser(description="Check entropy of a file.")
+    parser.add_argument("--file", help="Path to the file to check for entropy.")
+    args = parser.parse_args()
+
+    if not args.file:
+        print("Error: Please provide a file path using --file.")
+        return
+
     try:
-        with open(file_name, 'rb') as file:
+        with open(args.file, 'rb') as file:
             data = file.read()
     except FileNotFoundError:
-        print(f"Error: File '{file_name}' not found.")
+        print(f"Error: File '{args.file}' not found.")
         return
 
     # Calculate entropy of the data
@@ -69,3 +76,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

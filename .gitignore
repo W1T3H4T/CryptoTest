@@ -1,5 +1,6 @@
 # Prerequisites
 *.d
+CMakeUserPresets.json
 
 # Compiled Object files
 *.slo
@@ -27,7 +28,6 @@
 *.lib
 
 # Executables
-*.exe
 *.out
 *.app
 
@@ -36,8 +36,11 @@
 bin/
 obj/
 out/
+vcpkg*
+vcpkg_installed/
 
 # Test Data
+random_data*
 random_numbers*
-cryptographic_data_file*
+
 

@@ -50,5 +50,6 @@ Use the optional ``--hex`` flag to save the data in hexadecimal format.  Note: w
 ## Hashes
 ```bash
 RandomDataGen.exe SHA-384 hash: 2880cdc85b60b53620a63247286cf86a33aa54251e627af8aaa34630c7801f4ad7498074249a0ff1eeaec75ff09cb2b9
-CheckEntropy.exe SHA-384 hash: 2a1c63064d6185b558eaa327a33b88c71994f8680edf05d5aa03803312a7a55287597cba4e5143d6e69e6c66ecb09b29```
+CheckEntropy.exe SHA-384 hash: 2a1c63064d6185b558eaa327a33b88c71994f8680edf05d5aa03803312a7a55287597cba4e5143d6e69e6c66ecb09b29
+```
 

@@ -187,7 +187,9 @@ int main(int argc, char* argv[]) {
     case EntropyLevel::High:
         std::cout << "High (unpredictable)." << std::endl;
         break;
+
     }
+    std::cout << "SHA-256: " << compute_sha256_hash(data) << std::endl;
 
     return 0;
 }
